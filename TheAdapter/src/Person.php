@@ -3,7 +3,7 @@
 namespace Acme;
 
 class Person {
-    public function read($book){
+    public function read(BookInterface $book){
         $book->open();
         $book->turnPage();
     }

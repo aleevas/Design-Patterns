@@ -3,6 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Acme\Book;
+use Acme\Kindle;
 use Acme\Person;
 
 

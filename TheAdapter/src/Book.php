@@ -2,7 +2,9 @@
 
 namespace Acme;
 
-class Book {
+use Acme\BookInterface;
+
+class Book implements BookInterface {
     public function open(){
         var_dump('Opening the paper book');
     }
