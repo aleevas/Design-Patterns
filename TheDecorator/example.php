@@ -1,21 +1,35 @@
 <?php
 
-class BasicInspection {
+interface CarService {
+    public function getCoast();
+}
+
+class BasicInspection implements CarService {
     public function getCoast(){
         return 19;
     }
 }
 
-class BasicInspectionAndOilChange {
+class OilChange implements CarService{
+    protected $carService;
+
+    public function __construct(CarService $carService){
+        $this->carService = $carService;
+    }
     public function getCoast(){
-        return 19+19; // first 19 is a basic inspection
+        return 19 + $this->carService->getCoast();
     }
 }
 
-class BasicInspectionAndOilChangeAndTairRotation {
+class TairRotation implements CarService{
+    protected $carService;
+
+    public function __construct(CarService $carService){
+        $this->carService = $carService;
+    }
     public function getCoast(){
-        return 19+19+10; // first 19 is a basic inspection, second - OilChabne
+        return 10 + $this->carService->getCoast();
     }
 }
 
-echo (new BasicInspectionAndOilChangeAndTairRotation())->getCost();
+echo (new TairRotation(new OilChange(new BasicInspection())))->getCost();
