@@ -5,7 +5,7 @@ namespace Acme;
 use Acme\eReaderInterface;
 
 class Kindle implements eReaderInterface {
-    public function open(){
+    public function turnOn(){
         var_dump('Opening the Kindle book');
     }
 

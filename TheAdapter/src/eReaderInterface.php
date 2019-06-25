@@ -3,6 +3,6 @@
 namespace Acme;
 
 interface eReaderInterface {
-    public function open();
+    public function turnOn();
     public function pressNextPageButton();
 }
