@@ -29,11 +29,11 @@ class LogToExternalWebService implements Logger {
 
 
 class App {
-    public function log($data){
-        $logger = new LogToFile;
+    public function log($data, Logger $logger = null){
+        $logger = $logger ?: new LogToFile; 
         $logger->log($data);
         
     }
 }
 
-(new App)->log('Some information that needs to log');
+(new App)->log('Some information that needs toLog to file', new LogToExternalWebService);
