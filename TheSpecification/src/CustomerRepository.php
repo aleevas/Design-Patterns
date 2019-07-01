@@ -15,13 +15,13 @@ class CustomerRepository {
 
         foreach ($this->customers as $customer) {
 
-            if ($specification->isSatisfyedBy($customer)) {
+            if ($specification->isSatisfiedBy($customer)) {
 
                 $matches[] = $customer;
             }
         }
-        
-        return $matches;
+        return array_filter($this->customers, [$specification, 'isSatisfiedBy']);
+
     
     }
 

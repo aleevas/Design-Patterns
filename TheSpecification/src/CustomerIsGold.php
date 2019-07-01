@@ -1,8 +1,8 @@
 <?php
 
 class CustomerIsGold {
-    
-    public function isSatisfyedBy(Customer $customer) {
+
+    public function isSatisfiedBy(Customer $customer) {
         
         return $customer->type() == 'gold';
     
